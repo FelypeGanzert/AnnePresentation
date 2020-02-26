@@ -1,0 +1,241 @@
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+body{
+    font-family: Helvetica, sans-serif;
+}
+
+/* Páginas */
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 40px;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+#page1{
+    background-image: url('./img/page1.jpg'); 
+    background-position: center top;
+}
+#page2{background-image: url('./img/page2.jpg');}
+#page3{
+    background-image: url('./img/page3.jpg');
+    background-position: left top;
+
+}
+#page4{background-image: url('./img/page4.jpg');}
+#page5{background-image: url('./img/page5.jpg');}
+#fotos{
+    background-image: url('./img/fotos-background.jpg');
+    box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.514); 
+}
+
+/* Titulos e Textos*/
+h3, p, btn-change-page {
+    margin: 10px 0px;
+    padding: 5px;
+}
+.page h3, .page p {
+    color: #fff;
+    text-shadow: 2px 2px 5px black;
+}
+.page h3 {
+    font-size: 75px;
+}
+.page p{
+    font-size: 35px;
+}
+
+/* Botaoes pra trocar de pagina */
+.btn-change-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn-change-page a{
+    display: inline-block;
+    border-radius: 15px;
+    margin: 0px 15px;
+    padding: 20px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+.btn-change-page a i {
+    display: inline-block;
+    font-size: 25px;
+    pointer-events: none;
+}
+.btn-change-page a:hover{
+    background: #fff;
+    color: #222;
+}
+
+/* Efeitos pro título e pro texto aparecer */
+.page h3.move-effect {
+    animation: title 2s forwards ease-in-out;
+}
+.page p.move-effect {
+    animation: phrase 3.5s forwards ease-in-out;
+}
+@keyframes title {
+    from {
+        transform: translate(0, -60vh);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+
+@keyframes phrase {
+    0%, 40% {
+        transform: translate(-250vh, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Imagens */
+#fotos h3{
+    font-size: 24px;
+    padding: 10px;
+}
+#fotos p{
+    font-size: 15px;
+    padding: 10px;
+}
+#fotos a{
+    margin: 15px;
+}
+
+#galeria-fotos{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    padding: 40px;
+}
+.img-container{
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: 2px 2px 5px #333;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.img-container img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; 
+}
+.img-container:hover{
+    transform: scale(1.5);
+}
+
+.big-img{
+    position: absolute;
+    width: 105vw;
+    height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    backdrop-filter: blur(5px);
+}
+  
+.big-img img{
+    border-radius: 25px;
+    height: 80%;
+    width: 50%;
+    transition: 1s;
+    pointer-events: all;
+    box-shadow: 2px 2px 5px #333;
+}
+.big-img:hover{
+    transform: scale(1) !important;
+}
+.big-img img:hover{
+    transform: rotate(30deg);
+}
+
+@media(max-width: 500px) and (min-height: 601px){
+    .page{
+        padding: 0px 15px;
+    }
+    /* Titulos e Textos*/
+    .page h3 {
+        font-size: 50px;
+    }
+    .page p{
+        font-size: 25px;
+    }
+    .btn-change-page a{
+        font-size: 15px;
+        margin: 5px;
+    }
+
+    /* Imagens */
+    #galeria-fotos{
+        height: 50vh;
+        padding: 30px;
+    }
+    .big-img img{
+        border-radius: 25px;
+        height: 80%;
+        width: 80%;
+        object-fit: contain;
+    }
+}
+
+@media (max-height: 600px){
+    .page{
+        padding: 0px 10px;
+    }
+    /* Titulos e Textos*/
+    .page h3 {
+        font-size: 40px;
+    }
+    .page p{
+        font-size: 20px;
+    }
+    .btn-change-page a{
+        font-size: 12px;
+        margin: 5px;
+    }
+
+    /* Imagens */
+    #galeria-fotos{
+        height: 40vh;
+        padding: 30px;
+    }
+    .big-img img{
+        border-radius: 25px;
+        height: 80%;
+        width: 80%;
+        object-fit: contain;
+    }
+}
