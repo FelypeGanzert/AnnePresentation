@@ -199,6 +199,9 @@ h3, p, btn-change-page {
     }
 
     /* Imagens */
+    .img-container:hover{
+        transform: scale(1) !important;
+    }
     #galeria-fotos{
         height: 50vh;
         padding: 30px;
@@ -228,6 +231,13 @@ h3, p, btn-change-page {
     }
 
     /* Imagens */
+    .img-container:hover{
+        transform: scale(1) !important;
+    }
+    #galeria-fotos{
+        height: 40vh;
+        padding: 30px;
+    }
     #galeria-fotos{
         height: 40vh;
         padding: 30px;
