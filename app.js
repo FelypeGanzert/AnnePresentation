@@ -1,17 +1,47 @@
-// Adiciona as imagens
-document.addEventListener('DOMContentLoaded', () => {
-    const UIgaleria = document.querySelector('#galeria-fotos');
-    let output;
-    for (let i = 1; i <= 12; i++) {
-        output = `
-             <div class="img-container">
-                 <img src="img/anne${i}.jpg">
-             </div>
-         `
-        UIgaleria.innerHTML += output;
-    }
-})
+// Adiciona todas as imagens
+// document.addEventListener('DOMContentLoaded', () => {
+//     const UIgaleria = document.querySelector('#galeria-fotos');
+//     let output;
+//     for (let i = 1; i <= 12; i++) {
+//         output = `
+//              <div class="img-container">
+//                  <img src="img/anne${i}.jpg">
+//              </div>
+//          `
+//         UIgaleria.innerHTML += output;
+//     }
+// })
 
+//Evento pra trocar a imagem na galeria de fotos
+const quantidadeImages = 12;
+
+document.querySelector('#previous-picture').addEventListener('click', e => {
+    e.preventDefault();
+    changeImage('previous');
+});
+document.querySelector('#next-picture').addEventListener('click', e => {
+    e.preventDefault();
+    changeImage('next')
+});
+
+function changeImage(direction) {
+    const imagemAtual = document.querySelector('#img-atual');
+    let numberImagem = imagemAtual.getAttribute('src')
+    numberImagem = Number(numberImagem.substring(numberImagem.indexOf('e') + 1, numberImagem.indexOf('.')));
+    if (direction === 'previous') {
+        if (numberImagem === 1) {
+            imagemAtual.setAttribute('src', `img/anne${quantidadeImages}.jpg`);
+        } else {
+            imagemAtual.setAttribute('src', `img/anne${numberImagem - 1}.jpg`);
+        }
+    } else if (direction === 'next') {
+        if (numberImagem === quantidadeImages) {
+            imagemAtual.setAttribute('src', `img/anne${1}.jpg`);
+        } else {
+            imagemAtual.setAttribute('src', `img/anne${numberImagem + 1}.jpg`);
+        }
+    };
+}
 
 // Evento pra colocar o efeito de movimento quando entrar na pagina
 document.body.addEventListener('click', e => {
